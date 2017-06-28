@@ -1,6 +1,6 @@
 <%= render('layouts/errors', :object => @story) %>
 
-<%= form_for [@story] do |f| %>
+<%= form_for [@user, @story] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br><br>

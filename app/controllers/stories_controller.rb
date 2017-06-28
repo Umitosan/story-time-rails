@@ -13,6 +13,18 @@ class StoriesController < ApplicationController
     @story = @user.stories.new
   end
 
+  def create
+    @user = User.find(params[:user_id])
+    @story = @user.stories.new(story_params)
+    if @story.save
+      flash[:notice] = "Story added!"
+      redirect_to user_story_path(@user.id, @story.id)
+    else
+      render :new
+    end
+  end
+
+
 
   # def create
   #   @section = Section.find(params[:section_id])
@@ -24,6 +36,8 @@ class StoriesController < ApplicationController
   #     render :new
   #   end
   # end
+
+
   #
   # def edit
   #   @section = Section.find(params[:section_id])
@@ -50,9 +64,9 @@ class StoriesController < ApplicationController
   # end
   #
   #
-  # private
-  # def lesson_params
-  #   params.require(:lesson).permit(:name, :content, :order)
-  # end
+  private
+  def story_params
+    params.require(:story).permit(:title)
+  end
 
 end
