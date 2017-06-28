@@ -9,6 +9,20 @@
   </head>
 
   <body>
+
+    <div id="crouton">
+      <ul class="lesson-nav">
+        <li> <%= link_to "Home", root_path %> </li>
+        <li> <%= link_to "Add User", new_user_path %> </li>
+        <% if current_controller?('users') %>
+          <li> <%= link_to "Add Story", new_user_story_path(@user.id) %> </li>
+        <% end %>
+        <% if current_controller?('stories') && @story.nil? %>
+          <li> <%= link_to "Add Snippet", new_story_snippet_path(@story.id) %> </li>
+        <% end %>
+      </ul>
+    </div>
+
     <%= yield %>
   </body>
 </html>

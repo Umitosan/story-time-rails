@@ -4,14 +4,15 @@ class StoriesController < ApplicationController
     @stories = Story.all
   end
 
-  # def show
-  #   @stories = Story.all
-  # end
+  def show
+    @story = Story.find(params[:id])
+  end
 
-  # def new
-  #   @story = Story.find(params[:section_id])
-  #   @lesson = @section.lessons.new
-  # end
+  def new
+    @user = User.find(params[:user_id])
+    @story = @user.stories.new
+  end
+
 
   # def create
   #   @section = Section.find(params[:section_id])

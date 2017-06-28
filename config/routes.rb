@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'stories#index'
+  root to: 'users#index'
 
   resources :stories do
     resources :snippets

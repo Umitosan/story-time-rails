@@ -1,0 +1,7 @@
+<h1> <%= @story.title %> </h1>
+
+<ul>
+  <% @story.snippets.each do |snippet|  %>
+    <li><p> <%= snippet.body %> </p></li>
+  <% end %>
+</ul>
