@@ -6,10 +6,12 @@ class SnippetsController < ApplicationController
   end
 
   def create
-    @snippet = Snippet.new(snippet_params)
+    @story = Story.find(params[:story_id])
+    @snippet = @story.snippets.new(snippet_params)
     if @snippet.save
       flash[:notice] = "Snippet saved!"
-      redirect_to story_path(@story.id)
+      redirect_to story_path(@snippet.story)
+      # redirect_to  story_snippet_path(@story, @snippet)
     else
       render :new
     end
@@ -17,6 +19,6 @@ class SnippetsController < ApplicationController
 
   private
   def snippet_params
-    params.require(:snippet).permit(:body, :story_id, :user_id)
+    params.require(:snippet).permit(:body, :image)
   end
 end

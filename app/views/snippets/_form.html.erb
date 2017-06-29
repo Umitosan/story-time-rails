@@ -1,8 +1,11 @@
-<%= render('layouts/errors', :object => @story) %>
+<%= render('layouts/errors', :object => @snippet) %>
 
-<%= form_for [@story.snippets] do |f| %>
+<%= form_for [@story, @snippet] do |f| %>
   <%= f.label :body %>
   <%= f.text_field :body %>
+  <br><br>
+  <%= f.label :image %>
+  <%= f.text_field :image %>
   <br><br>
   <p><%= f.submit %></p>
 <% end %>

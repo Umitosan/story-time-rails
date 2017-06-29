@@ -3,5 +3,4 @@ class Story < ActiveRecord::Base
   has_many :snippets
 
   validates :title, :presence => true
-  validates :user_id, :presence => true
 end
