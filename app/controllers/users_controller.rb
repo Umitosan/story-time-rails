@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.alphabetical
   end
 
   def show
@@ -21,32 +21,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  #
-  # def edit
-  #   @section = Section.find(params[:section_id])
-  #   @lesson = Lesson.find(params[:id])
-  # end
-  #
-  # def update
-  #   @section = Section.find(params[:section_id])
-  #   @lesson = Lesson.find(params[:id])
-  #   if @lesson.update(lesson_params)
-  #     flash[:notice] = "Lesson successfully updated!"
-  #     redirect_to section_path(@lesson.section)
-  #   else
-  #     render :edit
-  #   end
-  # end
-  #
-  # def destroy
-  #   @section = Section.find(params[:section_id])
-  #   @lesson = Lesson.find(params[:id])
-  #   @lesson.destroy
-  #   flash[:notice] = "lesson destroyed!"
-  #   redirect_to section_path(@lesson.section)
-  # end
-  #
-  #
+
   private
   def user_params
     params.require(:user).permit(:name)

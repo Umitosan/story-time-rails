@@ -11,7 +11,6 @@ class SnippetsController < ApplicationController
     if @snippet.save
       flash[:notice] = "Snippet saved!"
       redirect_to story_path(@snippet.story)
-      # redirect_to  story_snippet_path(@story, @snippet)
     else
       render :new
     end
